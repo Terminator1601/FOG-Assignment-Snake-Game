@@ -400,11 +400,40 @@ const Board = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div style={{textAlign: 'center', marginTop: '20px'}}>
         {!gameRunning ? (
-          <button onClick={startGame}>Start</button>
+          <button
+            className="hovereffect"
+            style={{
+              backgroundColor: 'green',
+              color: 'white',
+              padding: '15px 40px',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              fontFamily: 'fantasy',
+              fontSize: '30px',
+              transition: 'background-color 0.9s',
+              // filter: brightness(150),
+            }}
+            onClick={startGame}>
+            Start
+          </button>
         ) : (
-          <button onClick={stopGame}>Stop</button>
+          <button
+            className="hovereffect"
+            style={{
+              backgroundColor: 'red',
+              color: 'white',
+              padding: '15px 40px',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              fontFamily: 'fantasy',
+              fontSize: '30px',
+              transition: 'background-color 0.9s',
+            }}
+            onClick={stopGame}>
+            Stop
+          </button>
         )}
       </div>
     </>

@@ -19,10 +19,14 @@
 }
 
 .cell-red {
-  background-color: blue;
+  background-color: green;
 }
 
 .cell-purple {
   background-color: purple;
 }
 
+
+.hovereffect:hover{
+  filter: brightness(150%);
+}
