@@ -1,10 +1,12 @@
 import Board from './Board/Board.jsx';
+import Instruction from './Instruction/instruction.js';
 
 import './App.css';
 
 const App = () => (
   <div className="App">
-    <Board/>
+    <Instruction />
+    <Board />
   </div>
 );
 
