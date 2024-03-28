@@ -388,8 +388,9 @@ const Board = () => {
                       <img
                         src={foodImage}
                         alt="food"
-                        width={'35px'}
-                        height={'35px'}
+                        className='food-image'
+                        // width={'35px'}
+                        // height={'35px'}
                       />
                     </div>
                   </div>
