@@ -60,6 +60,7 @@ const getStartingSnakeLLValue = board => {
 };
 
 const Board = () => {
+  const [highscore, setHighscore] = useState(0);
   const [score, setScore] = useState(0);
   const [board, setBoard] = useState(createBoard(BOARD_WIDTH, BOARD_HEIGHT));
   const [snake, setSnake] = useState(
@@ -73,6 +74,13 @@ const Board = () => {
   const [foodShouldReverseDirection, setFoodShouldReverseDirection] =
     useState(false);
   const [gameRunning, setGameRunning] = useState(false);
+
+  // Update highscore when score changes
+  useEffect(() => {
+    if (score > highscore) {
+      setHighscore(score);
+    }
+  }, [score]);
 
   useEffect(() => {
     const handleKeydown = e => {
@@ -220,7 +228,7 @@ const Board = () => {
 
     setFoodCell(nextFoodCell);
     setFoodShouldReverseDirection(nextFoodShouldReverseDirection);
-    setScore(score + 1);
+    setScore(score + 10);
   };
 
   const handleGameOver = () => {
@@ -231,6 +239,7 @@ const Board = () => {
     setSnakeCells(new Set([snakeLLStartingValue.cell]));
     setDirection(Direction.RIGHT);
     setGameRunning(false);
+    // setScore(score - 10);
   };
 
   const getCoordsInDirection = (coords, direction) => {
@@ -340,7 +349,8 @@ const Board = () => {
 
   return (
     <>
-      <h1>Score: {score}</h1>
+      <h1>Highscore: {highscore}</h1>
+      <h2>Score: {score}</h2>
       <div className="board">
         {board.map((row, rowIdx) => (
           <div key={rowIdx} className="row">
@@ -388,7 +398,7 @@ const Board = () => {
                       <img
                         src={foodImage}
                         alt="food"
-                        className='food-image'
+                        className="food-image"
                         // width={'35px'}
                         // height={'35px'}
                       />
